@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="MobileOptimized" content="width" />
+
+    <!-- Title -->
+    <title>{{ title }}</title>
+
+    <!-- Estilos Css -->
+    <link rel="stylesheet" href="../../static/css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</head>
+<body>
+    <img class="banner_gov" src="../../static/svg/banner-gov.svg" loading="lazy" alt="Logo Goberno de Colombia">
+    {% block content %}{% endblock %}
+    {% include "scripts.j2" %}
+</body>
+</html>

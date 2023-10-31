@@ -1,0 +1,12 @@
+{% extends "body.j2" %}{% block content %}
+{% from 'componentes/cards.j2' import cards with context %}
+{% from 'componentes/sideBar.j2' import sideBar with context %}
+{% from 'componentes/popup.j2' import popUp with context %}
+
+<img class="menu_icon" src="../../static/svg/menu.svg" loading="lazy" alt="Menú">
+{{sideBar("Candidaturas", candidatures)}}
+{{popUp("Confirmar Voto", "¿Estás seguro de que deseas votar por este Candidato?")}}
+<div class="candidates_container">
+        {{cards(candidates)}}
+</div>
+{% endblock %}

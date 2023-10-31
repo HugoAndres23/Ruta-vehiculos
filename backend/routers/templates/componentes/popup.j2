@@ -1,0 +1,12 @@
+{% macro popUp(title, content) %}
+
+<div class="popup">
+    <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <h2>{{ title }}</h2>
+        <p>{{ content }}</p>
+        <button id="confirm-button">Confirmar Voto</button>
+    </div>
+</div>
+
+{% endmacro %}

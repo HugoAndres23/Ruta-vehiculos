@@ -1,0 +1,15 @@
+{% macro sideBar(title, items) %}
+<div class="custom-sidebar">
+    <img class="return_icon" src="../../static/svg/return.svg" loading="lazy" alt="Menú">
+    <div class="custom-menu">
+        <h3 class="custom-menu-title">{{title}}</h3>
+        <hr>
+    </div>
+    <ul class="custom-submenu">
+        {% for item in items %}
+        <li class="custom-submenu-item"><a href="/main?candidatura={{item.id}}"
+                class="custom-submenu-link">{{item.candidature_name}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}

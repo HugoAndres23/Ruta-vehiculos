@@ -1,0 +1,16 @@
+{% extends "body.j2" %}{% block content %}
+<div class="login-container">
+    <img src="../../static/svg/escudo-colombia.svg" loading="lazy" alt="Escudo de la Republica de Colombia">
+    <div class="login-box">
+        <img src="../../static/svg/gov.svg" loading="lazy" alt="Logo Goberno de Colombia">
+        <form id="loginForm">
+            <div id="error_contain">
+                <span>Correo o contraseña incorrectos</span>
+            </div>
+            <input type="email" id="email" placeholder="Correo Electronico / Cedula de Ciudadania">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
