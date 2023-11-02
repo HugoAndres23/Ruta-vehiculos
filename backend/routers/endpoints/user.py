@@ -48,10 +48,7 @@ async def login_access_token(login_data: OAuth2PasswordRequestForm = Depends()) 
 
 
 @router.post("/register")
-async def signin(
-    VoterCreate: schemas.VoterCreate,
-    current_user: dict = Depends(deps.get_current_user),
-) -> Any:
+async def signin(VoterCreate: schemas.VoterCreate) -> Any:
     return register_voter(VoterCreate)
 
 

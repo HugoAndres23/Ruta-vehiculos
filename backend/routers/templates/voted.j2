@@ -1,0 +1,8 @@
+<div class="messages_container">
+    {% if already_voted %}
+    <p>Lo sentimos, no se puede registrar tu voto. Ya has votado por esta candidatura previamente. Cada usuario solo
+        puede votar una vez por cada candidatura.</p>
+    {% else %}
+    <p>Tu voto por esta candidatura ya ha sido registrado. ¡Gracias por participar en el proceso de elección!</p>
+    {% endif %}
+</div>

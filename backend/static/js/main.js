@@ -2,7 +2,6 @@ if (document.body.contains(document.querySelector(".menu_icon"))) {
   let menu_button = document.querySelector(".menu_icon");
   let return_button = document.querySelector(".return_icon");
   let menu = document.querySelector(".custom-sidebar");
-  console.log(menu_button, return_button, menu_button);
   menu_button.addEventListener("click", function (event) {
     menu.classList.add("sidebar-active");
   });
@@ -31,7 +30,12 @@ if (document.body.contains(document.querySelector(".menu_icon"))) {
   let confirm_button = document.getElementById("confirm-button");
   confirm_button.addEventListener("click", function (event) {
     actions_user.actionNewVote(voteData);
+    closePopup();
   });
+
+  function logOut() {
+    actions.actionLogOut();
+  }
 }
 document.addEventListener("DOMContentLoaded", async function () {
   voteData["id_voter"] = await actions.actionCheckLoggedIn();

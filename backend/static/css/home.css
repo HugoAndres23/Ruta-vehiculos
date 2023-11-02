@@ -102,9 +102,15 @@ body {
   text-align: center;
   background-color: var(--white);
   color: var(--dark_blue);
+  cursor: pointer;
   font-size: 24px;
   font-weight: 700;
   z-index: 0;
+  transition: background-color 500ms ease-out;
+}
+
+#loginForm button:hover {
+  background-color: var(--background_light);
 }
 
 /* SIDE BAR */
@@ -184,22 +190,21 @@ body {
 /* ALREADY VOTED */
 
 .messages_container {
-  position: relative;
-  top: 50%;
-  left: 50%;
   background-color: #0074d9;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  max-width: 300px;
+  max-width: 500px;
+  min-height: 200px;
+  margin-top: -115px;
 }
 
 .messages_container > p {
-  font-size: 18px;
+  font-size: 24px;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
 }
 
 /* MAIN */
@@ -213,6 +218,7 @@ body {
 
 .candidates_container {
   display: flex;
+  min-height: calc(100vh - 115px);
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
@@ -271,7 +277,7 @@ body {
 }
 
 .custom-card-button:hover {
-  background-color: var(--blue); /* Cambia el color al pasar el ratón */
+  background-color: var(--blue);
 }
 
 /* POPUP */
@@ -333,4 +339,26 @@ body {
 
 .popup-content > button:hover {
   background-color: #0056b3;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
+  text-align: center;
+  border: none;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--red);
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 250ms ease-out;
+}
+
+.logout-button:hover {
+  background-color: #690000;
 }

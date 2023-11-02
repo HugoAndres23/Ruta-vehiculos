@@ -35,12 +35,13 @@ def register_voter(voter_data: schemas.VoterCreate):
             )
             .execute()
         )
+        return new_voter
 
     except Exception as e:
         if "duplicate key value violates unique constraint" in str(e):
             raise HTTPException(status_code=400, detail="User already exist")
-
-    return new_voter.data[0]
+        else:
+            return e
 
 
 def register_vote(vote: schemas.VoteCreate):
@@ -55,7 +56,7 @@ def register_vote(vote: schemas.VoteCreate):
         )
         .execute()
     )
-    return new_vote[1]
+    return new_vote
 
 
 def get_by_id(id: int):

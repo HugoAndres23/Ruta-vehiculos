@@ -99,13 +99,19 @@ const actions_user = {
   },
   async actionNewVote(voteData) {
     try {
-      let response = api.new_vote(getLocalToken(), voteData);
+      let response = await api.new_vote(getLocalToken(), voteData);
       if (response) {
+        wrapper = document.querySelector(".candidates_container");
+        wrapper.innerHTML = response.data;
         return response.data;
       }
     } catch (e) {
       console.error(e);
       if (e.response.status === 403) actions.actionLogOut();
+      else if (e.response.status === 409) {
+        wrapper = document.querySelector(".candidates_container");
+        wrapper.innerHTML = e.response.data;
+      }
       return e;
     }
   },
