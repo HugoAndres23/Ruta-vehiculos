@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from router.endpoints import static, main, user, candidates, candidatures, votes
+from backend.router.endpoints import static, main, user, candidates, candidatures, votes
 
-app = FastAPI(title="E-Voting")
+app = FastAPI(title="Ruta Vehicular")
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 
 app.include_router(static.router, tags=["Static"])
 # app.include_router(main.router, tags=["Login"])
