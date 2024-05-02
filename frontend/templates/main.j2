@@ -1,12 +1,12 @@
-{% extends "body.j2" %}{% block content %}
-{% from 'componentes/cards.j2' import cards with context %}
-{% from 'componentes/sideBar.j2' import sideBar with context %}
-{% from 'componentes/popup.j2' import popUp with context %}
-
-<img class="menu_icon" src="../../static/svg/menu.svg" loading="lazy" alt="Menú">
-{{sideBar("Candidaturas", candidatures)}}
-{{popUp("Confirmar Voto", "¿Estás seguro de que deseas votar por este Candidato?")}}
-<div class="candidates_container">
-        {{cards(candidates)}}
-</div>
+{% extends "body.j2" %}{% block body %}
+<main class="main_container">
+    <div class="map_container">
+        <div id="map"></div>
+    </div>
+    <div class="inputs_container">
+        <input type="text" id="origen" placeholder="Dirección de origen">
+        <input type="text" id="destino" placeholder="Dirección de destino">
+        <button class="inputs_button" data-action="/ruta" onclick="buscarRuta()">Buscar Ruta</button>
+    </div>
+</main>
 {% endblock %}

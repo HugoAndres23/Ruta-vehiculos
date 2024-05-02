@@ -1,0 +1,36 @@
+/* DIRECCION */
+
+.inputs_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+#origen,
+#destino {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.inputs_button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.inputs_button:hover {
+  background-color: #0056b3;
+}
+
+.inputs_button:active {
+  background-color: #003d80;
+}

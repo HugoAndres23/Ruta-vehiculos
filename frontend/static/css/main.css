@@ -1,0 +1,31 @@
+:root {
+  --background_light: #ebebeb;
+  --white: #fff;
+  --dark_blue: #0b0a2e;
+  --typography_color: #697586;
+  --yellow: ##ffb627;
+  --blue: #3366cc;
+  --red: #e41414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gotham Book", Roboto, sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background-color: var(--background_light);
+  height: 100%;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 24px;
+}

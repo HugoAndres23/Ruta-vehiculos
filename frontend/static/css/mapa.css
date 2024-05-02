@@ -1,0 +1,12 @@
+/* MAPA */
+
+.map_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#map {
+  height: 700px;
+  width: 700px;
+}
