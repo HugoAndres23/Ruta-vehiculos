@@ -8,7 +8,7 @@ router = APIRouter()
 @router.get("/", response_class=HTMLResponse)
 @router.get("/home", response_class=HTMLResponse)
 async def Home(request: Request):
-    title = "E-voting | Inicio"
+    title = "Ruta Optima"
     return TEMPLATES.TemplateResponse(
         "main.j2",
         {

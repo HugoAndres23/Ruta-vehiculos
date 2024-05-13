@@ -9,29 +9,37 @@ async function initMap() {
     disableDefaultUI: true,
   });
 
-  const autocompleteOrigen = new google.maps.places.Autocomplete(
-    document.getElementById("origen")
-  );
-
-  const autocompleteDestino = new google.maps.places.Autocomplete(
-    document.getElementById("destino")
-  );
+  var Inputcontainer = document.getElementsByClassName("inputs_container")[0];
+  var inputs = Inputcontainer.getElementsByTagName("input");
+  [...inputs].forEach((input) => {
+    new google.maps.places.Autocomplete(input);
+  });
 }
 
 initMap();
 
 let domain = "http://127.0.0.1:8000";
 
-function buscarRuta() {
-  var origen = document.getElementById("origen").value;
-  var destino = document.getElementById("destino").value;
+async function buscarRuta() {
+  var Inputcontainer = document.getElementsByClassName("inputs_container")[0];
+  var inputs = Inputcontainer.getElementsByTagName("input");
   var action = document
     .getElementsByClassName("inputs_button")[0]
     .getAttribute("data-action");
 
+  var origen = document.getElementById("origen").value;
+  var destinos = [];
+
+  [...inputs].forEach((input) => {
+    var place = input.value;
+    if (place !== "" && input.id !== "origen") {
+      destinos.push(place);
+    }
+  });
+
   var data = {
     origen: origen,
-    destino: destino,
+    destinos: destinos,
   };
 
   fetch(domain + action, {
@@ -48,10 +56,38 @@ function buscarRuta() {
       throw new Error("Error al enviar los datos al servidor.");
     })
     .then((data) => {
-      // Manejar la respuesta del backend
-      console.log(data);
+      trazarRutaEnMapa(data.ruta)
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+
+
+function trazarRutaEnMapa(ruta) {
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer();
+
+  directionsRenderer.setMap(map);
+
+  var waypoints = ruta.slice(1, -1).map((waypoint) => ({
+    location: waypoint,
+    stopover: true,
+  }));
+
+  var request = {
+    origin: ruta[0],
+    destination: ruta[ruta.length - 1],
+    waypoints: waypoints,
+    travelMode: "DRIVING",
+  };
+
+  directionsService.route(request, function (result, status) {
+    if (status == "OK") {
+      directionsRenderer.setDirections(result);
+    } else {
+      console.error("Error al trazar la ruta:", status);
+    }
+  });
 }
